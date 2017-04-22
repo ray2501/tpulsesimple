@@ -1,0 +1,11 @@
+2016-12-29  Danilo Chang
+
+    * Bump version to 0.2
+    * Add basic tests
+    * Fix invalid check
+
+2016-12-21  Danilo Chang
+
+    * Implement pulseaudio::simple command
+    * Dump sample extension
+
