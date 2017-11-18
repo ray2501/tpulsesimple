@@ -32,11 +32,11 @@ Tcl bindings for PulseAudio simple API.
 make 
 
 %install
-make DESTDIR=%{buildroot} pkglibdir=%{directory}/%{_lib}/tcl/%{name}%{version} install
+make DESTDIR=%{buildroot} pkglibdir=%{tcl_archdir}/%{name}%{version} install
 
 %clean
 rm -rf %buildroot
 
 %files
 %defattr(-,root,root)
-%{directory}/%{_lib}/tcl
+%{tcl_archdir}
