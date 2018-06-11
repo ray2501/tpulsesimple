@@ -71,7 +71,7 @@ static int SimpleObjCmd(void *cd, Tcl_Interp *interp, int objc,Tcl_Obj *const*ob
   switch( (enum SIMPLE_enum)choice ){
 
     case SIMPLE_READ: {
-      char zData[176400];  // 44100 x 2 x 2 -> is it OK?
+      unsigned char zData[176400];  // 44100 x 2 x 2 -> is it OK?
       int error;
       Tcl_Obj *pResultStr = NULL;
 
@@ -84,14 +84,14 @@ static int SimpleObjCmd(void *cd, Tcl_Interp *interp, int objc,Tcl_Obj *const*ob
          return TCL_ERROR;
       }
 
-      pResultStr = Tcl_NewStringObj(zData, sizeof(zData));
+      pResultStr = Tcl_NewByteArrayObj(zData, sizeof(zData));
       Tcl_SetObjResult(interp, pResultStr);
 
       break;
     }
 
     case SIMPLE_WRITE: {
-      char *zData;
+      unsigned char *zData;
       int len;
       int error;
 
@@ -100,7 +100,7 @@ static int SimpleObjCmd(void *cd, Tcl_Interp *interp, int objc,Tcl_Obj *const*ob
         return TCL_ERROR;
       }
 
-      zData = Tcl_GetStringFromObj(objv[2], &len);
+      zData = Tcl_GetByteArrayFromObj(objv[2], &len);
       if( !zData || len < 1 ){
           return TCL_ERROR;
       }
