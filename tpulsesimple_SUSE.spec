@@ -8,7 +8,7 @@ Version:       0.2
 Release:       2
 License:       LGPL v2.1
 Group:         Development/Libraries/Tcl
-Source:        https://github.com/ray2501/tpulsesimple/tpulsesimple_0.2.zip
+Source:        %{name}-%{version}.tar.gz
 URL:           https://github.com/ray2501/tpulsesimple
 BuildRequires: autoconf
 BuildRequires: make
@@ -22,7 +22,7 @@ BuildRoot:     %{buildroot}
 Tcl bindings for PulseAudio simple API.
 
 %prep
-%setup -q -n %{name}
+%setup -q -n %{name}-%{version}
 
 %build
 ./configure \
