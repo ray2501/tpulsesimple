@@ -4,7 +4,7 @@
 
 Name:          tpulsesimple
 Summary:       Tcl bindings for PulseAudio simple API
-Version:       0.3
+Version:       0.4
 Release:       0
 License:       LGPL-2.1-or-later
 Group:         Development/Libraries/Tcl
