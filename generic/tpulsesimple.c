@@ -92,7 +92,7 @@ static int SimpleObjCmd(void *cd, Tcl_Interp *interp, int objc,Tcl_Obj *const*ob
 
     case SIMPLE_WRITE: {
       unsigned char *zData;
-      int len;
+      Tcl_Size len;
       int error;
 
       if( objc != 3 ){
@@ -191,7 +191,7 @@ static int SimpleMain(void *cd, Tcl_Interp *interp, int objc,Tcl_Obj *const*objv
   pa_sample_format_t format_t = PA_SAMPLE_S16LE;
   int samplerate = 44100;
   int channels = 2;
-  int len;
+  Tcl_Size len;
   int error;
 
   /*
@@ -330,7 +330,7 @@ Tpulsesimple_Init(Tcl_Interp *interp)
 	return TCL_ERROR;
     }
 
-    Tcl_CreateObjCommand(interp, "pulseaudio::simple", (Tcl_ObjCmdProc *) SimpleMain,
+    Tcl_CreateObjCommand(interp, "::pulseaudio::simple", (Tcl_ObjCmdProc *) SimpleMain,
         (ClientData)NULL, (Tcl_CmdDeleteProc *)NULL);    
 
     return TCL_OK;
